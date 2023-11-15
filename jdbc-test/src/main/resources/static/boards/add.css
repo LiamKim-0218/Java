@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+form fieldset {
+  width: fit-content;
+}
+
+form div {
+  margin: 1rem;
+}
+
+form div textarea {
+  resize: none;
+}
