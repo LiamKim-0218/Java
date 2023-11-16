@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>게시판</title>
+	 <link rel="stylesheet" href="/boards/index.css" />
+	<html lang="ko" mxlns:th="http://www.thymeleaf.org">
+</head>
+
+<body>
+
+	<a 
+	  th:fragment="itemFragment (item)"
+	  class="items-inner-box" 
+	  style="color:blue" 
+	  th:object="${item}"
+	  th:href="@{/board/item (id=*{id})}"
+	  >
+		<div class="title">[[*{title}]]</div>
+		<div class="user">
+			user : <span class="user-name" th:text="*{user}"></span>
+		</div>
+	</a>
+	<a 
+	  th:fragment="itemFragmentPink (item)" 
+	  class="items-inner-box" 
+	  style="color:pink" 
+	  th:object="${item}"
+	  th:href="@{/board/item (id=*{id})}"
+	  >
+		<div class="title">[[*{title}]]</div>
+		<div class="user">
+			user : <span class="user-name" th:text="*{user}"></span>
+		</div>
+	</a>
+
+
+
+</body>
+</html>

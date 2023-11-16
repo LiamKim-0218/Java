@@ -37,4 +37,7 @@ public class BoardDAO {
 		return jdbcTemplate.query("select * from spring_boards order by \"id\"", mapper);
 
 	}
+
+	
+
 }

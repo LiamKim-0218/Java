@@ -5,9 +5,12 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -25,19 +28,26 @@ public class BoardController {
 	public String listPage() {
 		return "boards/index";
 	}
+	
+	@GetMapping("/board/thyme")
+	public String listThymePage(Model model) {
+		List<Board> list = boardService.getAll();
+		model.addAttribute("list",list);
+		model.addAttribute("test","이거 읽어올 수 있나?");
+		model.addAttribute("tag","<strong>이거 읽어올 수 있나?</strong>");
+		return "boards/Thyme/index";
+	}
 
 	@GetMapping("/board/add")
 	public String addPage() {
 		return "boards/add";
 	}
 
-	@PostMapping("/board/add")
-	public String add(@RequestParam Map<String, String> data) {
-		boardService.add(new Board(data.get("user"), data.get("title"), data.get("content")));
-
-		return "redirect:/board";
+	@GetMapping("/board/item")
+	public String itemPage() {
+		return "boards/item";
 	}
-
+	
 	@ResponseBody
 	@PostMapping("/board")
 	public String list() {
@@ -56,6 +66,32 @@ public class BoardController {
 		return sb.toString();
 	}
 
+	@PostMapping("/board/add")
+	public String add(@RequestParam Map<String, String> data) {
+		boardService.add(new Board(data.get("user"), data.get("title"), data.get("content")));
+
+		return "redirect:/board";
+	}
+	
+	
+	
+	@PostMapping("/board/item")
+	@ResponseBody
+	public String get(@RequestBody Map<String, String> data) {
+		Board board = boardService.get(Integer.parseInt(data.get("id")));
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("{\"id\":" + board.getId() + ",");
+		sb.append("\"user\":\"" + board.getUser() + "\",");
+		sb.append("\"title\":\"" + board.getTitle() + "\",");
+		sb.append("\"content\":\"" + board.getContent() + "\"}");
+
+		return sb.toString();
+	}
+	
+
+	
+
 	@GetMapping("/board/detail/{id}")
 	@ResponseBody
 	public String detailPage(@PathVariable int id, HttpServletResponse response) {
@@ -69,5 +105,9 @@ public class BoardController {
 			return "{}";
 		}
 	}
+	
+	
+	
+	
 
 }
