@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko" mxlns:th="http://www.thymeleaf.org">
+<head th:fragment="registFragmentHead">
+	<link rel="stylesheet" href="/styles/header.css" />
+	<style>
+        span.required {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+	<div th:fragment="registFragment" class="regist container">
+		<form action="/userAdd" method="post">
+			<div class="form-floating mb-3">
+				<input 
+					type="text" 
+					class="form-control" 
+					name="userId" 
+					id="floatingInput" 
+					placeholder="아이디"
+					th:required="true">
+				<label for="floatingInput">아이디<span class="required">*</span></label>
+			</div>
+			<div class="form-floating mb-3">
+				<input 
+					class="form-control" 
+					name="password"
+					placeholder="비밀번호" 
+					id="floatingTextarea"
+					th:required="true">
+				<label for="floatingInput">비밀번호<span class="required">*</span></label>
+			</div>
+			<div class="form-floating mb-3">
+				<input 
+					class="form-control" 
+					name="name"
+					placeholder="이름" 
+					id="floatingTextarea"
+					th:required="true">
+				<label for="floatingInput">이름<span class="required">*</span></label>
+			</div>
+			<div class="form-floating mb-3">
+				<input 
+					class="form-control" 
+					name="phone"
+					placeholder="전화번호" 
+					id="floatingTextarea"
+					th:required="true">
+				<label for="floatingInput">전화번호<span class="required">*</span></label>
+			</div>
+			<div class="form-floating mb-3">
+				<input 
+					class="form-control" 
+					name="address"
+					placeholder="주소" 
+					id="floatingTextarea">
+				<label for="floatingInput">주소</label>
+			</div>
+			<div class="form-floating mb-3">
+				<input 
+					class="form-control" 
+					name="email"
+					placeholder="이메일" 
+					id="floatingTextarea"
+					th:required="true">
+				<label for="floatingInput">이메일<span class="required">*</span></label>
+			</div>
+			<div class="form-floating mb-3">
+				<input 
+					class="form-control" 
+					name="gitAddress"
+					placeholder="Github 주소" 
+					id="floatingTextarea">
+				<label for="floatingInput">Github 주소</label>
+			</div>
+			<div class="form-floating mb-3">
+				<input 
+					class="form-control" 
+					name="gender"
+					placeholder="성별" 
+					id="floatingTextarea">
+				<label for="floatingInput">성별</label>
+			</div>
+			<div class="form-floating mb-3">
+				<input 
+					class="form-control" 
+					name="birth"
+					placeholder="생년월일" 
+					id="floatingTextarea">
+				<label for="floatingInput">생년월일</label>
+			</div>
+			<button class="btn btn-primary">회원가입</button>
+		</form>
+	</div>
+
+</body>
+</html>

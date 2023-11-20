@@ -1,5 +1,16 @@
 @charset "UTF-8";
 
-#header h1{
-	text-align: center;
+
+
+#header .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 45%; 
+    width: 100%;
+}
+
+
+.btn {
+    margin-right: 2%;
 }
