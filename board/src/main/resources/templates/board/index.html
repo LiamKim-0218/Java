@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html mxlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="boardFragmentHead">
+	<link rel="stylesheet" href="/styles/board/index.css" />
+</head>
+
+<body>
+	<div th:fragment="boardFragment" class="board container">
+		<form action="/add" method="post">
+			<!-- <input type="text" name="title" /> -->
+			<div class="form-floating mb-3">
+				<input 
+					type="text" 
+					class="form-control" 
+					name="title" 
+					id="floatingInput" 
+					placeholder="제목">
+				<label for="floatingInput">제목</label>
+			</div>
+			<!-- <textarea name="content" id="content" cols="30" rows="10"></textarea> -->
+			<div class="form-floating mb-3">
+				<textarea 
+					class="form-control" 
+					name="content"
+					placeholder="내용" 
+					id="floatingTextarea"></textarea>
+				<label for="floatingTextarea">내용</label>
+			</div>
+			<button class="btn btn-primary">글 올리기</button>
+		</form>
+		<div>
+			<!--<ui>
+				<li th:each="item:${list}" th:object="${item}">
+					<h1 th:text="*{title}"></h1>
+					<p th:text="*{userId}"></p>
+				</li>
+			</ui>-->
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">제목</th>
+						<th scope="col">작성자</th>
+						<th scope="col">작성일자</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="item:${list}" th:object="${item}">
+						<th scope="row" th:text="*{id}"></th>
+						<th th:text="*{title}"></th>
+						<th th:text="*{userId}"></th>
+						<th th:text="*{createAt}"></th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
