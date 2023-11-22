@@ -1,344 +1,198 @@
-<!DOCTYPE html>
-<html lang="ko" mxlns:th="http://www.thymeleaf.org">
+<html mxlns:th="http://www.thymeleaf.org">
+  <head th:fragment="registFragmentHead">
+    <link rel="stylesheet" href="/styles/user/regist.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css"
+      integrity="sha512-34s5cpvaNG3BknEWSuOncX28vz97bRI59UnVtEEpFX536A7BtZSJHsDyFoCl8S7Dt2TPzcrCEoHBGeM4SUBDBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.standalone.min.css"
+      integrity="sha512-D5/oUZrMTZE/y4ldsD6UOeuPR4lwjLnfNMWkjC0pffPTCVlqzcHTNvkn3dhL7C0gYifHQJAIrRTASbMvLmpEug=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker3.min.css"
+      integrity="sha512-aQb0/doxDGrw/OC7drNaJQkIKFu6eSWnVMAwPN64p6sZKeJ4QCDYL42Rumw2ZtL8DB9f66q4CnLIUnAw28dEbg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker3.standalone.min.css"
+      integrity="sha512-t+00JqxGbnKSfg/4We7ulJjd3fGJWsleNNBSXRk9/3417ojFqSmkBfAJ/3+zpTFfGNZyKxPVGwWvaRuGdtpEEA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-<head th:fragment="registFragmentHead">
-	<link rel="stylesheet" href="/styles/user/regist.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css" integrity="sha512-34s5cpvaNG3BknEWSuOncX28vz97bRI59UnVtEEpFX536A7BtZSJHsDyFoCl8S7Dt2TPzcrCEoHBGeM4SUBDBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker3.min.css" integrity="sha512-aQb0/doxDGrw/OC7drNaJQkIKFu6eSWnVMAwPN64p6sZKeJ4QCDYL42Rumw2ZtL8DB9f66q4CnLIUnAw28dEbg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker3.standalone.min.css" integrity="sha512-t+00JqxGbnKSfg/4We7ulJjd3fGJWsleNNBSXRk9/3417ojFqSmkBfAJ/3+zpTFfGNZyKxPVGwWvaRuGdtpEEA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.standalone.min.css" integrity="sha512-D5/oUZrMTZE/y4ldsD6UOeuPR4lwjLnfNMWkjC0pffPTCVlqzcHTNvkn3dhL7C0gYifHQJAIrRTASbMvLmpEug==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"
+      integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/locales/bootstrap-datepicker.ko.min.js"
+      integrity="sha512-L4qpL1ZotXZLLe8Oo0ZyHrj/SweV7CieswUODAAPN/tnqN3PA1P+4qPu5vIryNor6HQ5o22NujIcAZIfyVXwbQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <div th:fragment="registFragment" class="container">
+      <!-- <div
+        id="parent"
+        style="background-color: cornsilk"
+        contenteditable="true"
+      >
+        부모
+        <div id="child1">
+          자식1
+          <div id="child-child">손자</div>
+        </div>
+        <div id="child2">자식2</div>
+      </div> -->
+      <form action="/user/regist" method="post" class="row" id="regist-form">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="user-id">ID</span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="ID"
+            aria-label="user-id"
+            aria-describedby="user-id"
+            name="userId"
+          />
+          <span class="input-group-text" id="password">PW</span>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="password"
+            aria-label="password"
+            aria-describedby="password"
+            name="password"
+          />
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="name">Name</span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Name"
+            aria-label="name"
+            aria-describedby="name"
+            id="name"
+            name="name"
+          />
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="phone">Phone</span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Phone Number"
+            aria-label="phone"
+            aria-describedby="phone"
+            id="phone"
+            name="phone"
+          />
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="address">Address</span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Address"
+            aria-label="address"
+            aria-describedby="address"
+            id="address"
+            name="address"
+          />
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="email">E-Mail</span>
+          <input
+            type="email"
+            class="form-control"
+            placeholder="example@gmail.com"
+            aria-label="email"
+            aria-describedby="email"
+            id="email"
+            name="email"
+          />
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="git-address">Github Address</span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="https://github.com/example"
+            aria-label="git-address"
+            aria-describedby="git-address"
+            id="git-address"
+            name="git-address"
+          />
+        </div>
 
-	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/locales/bootstrap-datepicker.ko.min.js" integrity="sha512-L4qpL1ZotXZLLe8Oo0ZyHrj/SweV7CieswUODAAPN/tnqN3PA1P+4qPu5vIryNor6HQ5o22NujIcAZIfyVXwbQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <div class="input-group mb-3">
+          <div class="input-group-text">
+            <input
+              type="radio"
+              class="form-check-input mt-0"
+              value="1"
+              aria-label="gender"
+              id="gender-male"
+              name="gender"
+            />
+          </div>
+          <label for="gender-male" class="form-control">Male</label>
+          <div class="input-group-text">
+            <input
+              type="radio"
+              class="form-check-input mt-0"
+              value="2"
+              aria-label="gender"
+              id="gender-female"
+              name="gender"
+            />
+          </div>
+          <label for="gender-female" class="form-control">Female</label>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="birth">Birth Day</span>
+          <input
+            type="text"
+            class="form-control"
+            aria-label="birth"
+            aria-describedby="birth"
+            id="datePicker"
+            name="birth"
+            autocomplete="off"
+          />
+        </div>
 
-	<style>
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.4);
-            padding-top: 60px;
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
-	<script>
-        function registrationSuccess() {
-            alert("회원가입이 성공적으로 완료되었습니다.");
-        }
-
-        function openErrorModal(message) {
-            document.getElementById("errorMessage").innerHTML = message;
-            document.getElementById("errorModal").style.display = "block";
-        }
-
-        function closeModal() {
-            document.getElementById("errorModal").style.display = "none";
-        }
-
-        $(document).ready(function () {
-            $('#datePicker').datepicker({
-                format: "yyyy-mm-dd",
-                endDate: "1d",
-                autoclose: true,
-                clearBtn: true,
-                title: "Birth day",
-                language: "ko",
-            });
-        });
-
-        function openModal(message) {
-            console.log("Opening modal with message:", message);
-            document.getElementById("errorMessage").innerHTML = message;
-            document.getElementById("errorModal").style.display = "block";
-        }
-    </script>
-
-</head>
-
-<body>
-	<div th:fragment="registFragment" class="container">
-		<form action="/user/regist" method="post" class="row">
-			<div class="input-group mb-3">
-				<span class="input-group-text" id="name">ID</span>
-				<input 
-					type="text" 
-					class="form-control" 
-					placeholder="ID" 
-					aria-label="user-id"
-					aria-describedby="user-id"
-					name="userId" 
-				/>
-				<span class="input-group-text" id="password">PW</span>
-				<input 
-					type="text" 
-					class="form-control"
-					placeholder="PW" 
-					aria-label="password"
-					aria-describedby="password" 
-					name="password" 
-				/>
-			</div>
-			<div class="input-group mb-3">
-				<span class="input-group-text" id="name">Name</span>
-				<input 
-					type="text" 
-					class="form-control" 
-					placeholder="Name" 
-					aria-label="name"
-					aria-describedby="name" 
-					name="name" 
-				/>
-			</div>
-			<div class="input-group mb-3">
-				<span class="input-group-text" id="phone">Phone</span>
-				<input 
-					type="text" 
-					class="form-control" 
-					placeholder="Phone Number" 
-					aria-label="phone"
-					aria-describedby="phone" 
-					name="phone" 
-				/>
-			</div>
-			<div class="input-group mb-3">
-				<span class="input-group-text" id="address">Address</span>
-				<input 
-					type="text" 
-					class="form-control" 
-					placeholder="Address" 
-					aria-label="address"
-					aria-describedby="address" 
-					name="address" 
-				/>
-			</div>
-			<div class="input-group mb-3">
-				<span class="input-group-text" id="email">E-mail</span>
-				<input 
-					type="email" 
-					class="form-control" 
-					placeholder="example@gmail.com" 
-					aria-label="email"
-					aria-describedby="email" 
-					name="email" 
-				/>
-			</div>
-			<div class="input-group mb-3">
-				<span class="input-group-text" id="git-address">git-address</span>
-				<input 
-					type="text" 
-					class="form-control" 
-					placeholder="https://github.com/example" 
-					aria-label="git-address"
-					aria-describedby="git-address" 
-					name="git-address" 
-				/>
-			</div>
-			
-			<div class="input-group mb-3">
-				<div class="input-group-text">
-				<input 
-					type="radio" 
-					class="form-check-input mt-0" 
-					value="1" 
-					aria-label="gender"
-					id="fender-male"
-					name="gender" 
-				/>
-				</div>
-				<label for="gender-male" class="form-control">Male</label>
-					<div class="input-group-text">
-					<input 
-						type="radio" 
-						class="form-check-input mt-0" 
-						value="2" 
-						aria-label="gender"
-						id="fender-female"
-						name="gender" 
-					/>
-				</div>
-				<label for="gender-female" class="form-control">Female</label>
-			</div>
-			
-			<div class="input-group mb-3">
-				<span class="input-group-text" id="birth">Birth Day</span>
-				<input 
-					type="text" 
-					class="form-control" 
-					aria-label="birth"
-					aria-describedby="birth" 
-					id="datePicker"
-					name="birth"
-					autocomplete="off" 
-				/>
-			</div>
-			<div class="input-group">
-				<button class="btn btn-primary btn-lg m-auto">Sign in</button>
-			</div>
-		</form>
-		
-		<div id="errorModal" class="modal">
-	        <div class="modal-content">
-	            <span class="close" onclick="closeModal()">&times;</span>
-	            <p id="errorMessage"></p>
-	        </div>
-   		</div>
-		<script>
-			
-			
-			function validateForm() {
-            var userId = document.getElementsByName("userId")[0].value;
-		    var password = document.getElementsByName("password")[0].value;
-		    var name = document.getElementsByName("name")[0].value;
-		
-		    if (!userId.match(/^[a-zA-Z0-9]{3,20}$/)) {
-		        openErrorModal("유효하지 않은 아이디입니다. 아이디는 3자에서 20자까지의 영문 또는 숫자로 이루어져야 합니다.");
-		        return;
-		    }
-		
-		    if (!password.match(/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&])[a-zA-Z\d!@#$%^&]{10,30}$/)) {
-		        openErrorModal("유효하지 않은 비밀번호입니다. 비밀번호는 대소문자, 숫자, 특수문자(!@#$%^&)를 포함하여 10자에서 30자까지여야 합니다.");
-		        return;
-		    }
-		
-		    if (!(name.match(/[가-힣]{2,10}/) || name.match(/[a-zA-Z]{4,20}/))) {
-		        openErrorModal("유효하지 않은 이름입니다. 이름은 한글 2자에서 10자 또는 영문 4자에서 20자까지로 이루어져야 합니다.");
-		        return;
-		    }
-		
-		    document.querySelector("form").submit();
-       		}
-			
-			
-		</script>
-		
-	</div>
-	
-</body>
-
+        <!-- <div class="input-group mb-3">
+          <span class="input-group-text" id="birth">Birth Day</span>
+          <input
+            type="date"
+            class="form-control"
+            aria-label="birth"
+            aria-describedby="birth"
+            id="birth"
+            name="birth"
+          />
+        </div> -->
+        <div class="input-group">
+          <button class="btn btn-primary btn-lg m-auto">Sign in</button>
+        </div>
+      </form>
+      <script src="/scripts/user/regist.js"></script>
+    </div>
+  </body>
 </html>
-
-<!--<!DOCTYPE html>
-<html lang="ko" mxlns:th="http://www.thymeleaf.org">
-<head th:fragment="registFragmentHead">
-	<link rel="stylesheet" href="/styles/user/regist.css" />
-	<style>
-        span.required {
-            color: red;
-        }
-    </style>
-</head>
-<body>
-	<div th:fragment="registFragment" class="regist container">
-		<form action="/userAdd" method="post">
-			<div class="form-floating mb-3">
-				<input 
-					type="text" 
-					class="form-control" 
-					name="userId" 
-					id="floatingInput" 
-					placeholder="아이디"
-					th:required="true">
-				<label for="floatingInput">아이디<span class="required">*</span></label>
-			</div>
-			<div class="form-floating mb-3">
-				<input 
-					class="form-control" 
-					name="password"
-					placeholder="비밀번호" 
-					id="floatingTextarea"
-					th:required="true">
-				<label for="floatingInput">비밀번호<span class="required">*</span></label>
-			</div>
-			<div class="form-floating mb-3">
-				<input 
-					class="form-control" 
-					name="name"
-					placeholder="이름" 
-					id="floatingTextarea"
-					th:required="true">
-				<label for="floatingInput">이름<span class="required">*</span></label>
-			</div>
-			<div class="form-floating mb-3">
-				<input 
-					class="form-control" 
-					name="phone"
-					placeholder="전화번호" 
-					id="floatingTextarea"
-					th:required="true">
-				<label for="floatingInput">전화번호<span class="required">*</span></label>
-			</div>
-			<div class="form-floating mb-3">
-				<input 
-					class="form-control" 
-					name="address"
-					placeholder="주소" 
-					id="floatingTextarea">
-				<label for="floatingInput">주소</label>
-			</div>
-			<div class="form-floating mb-3">
-				<input 
-					class="form-control" 
-					name="email"
-					placeholder="이메일" 
-					id="floatingTextarea"
-					th:required="true">
-				<label for="floatingInput">이메일<span class="required">*</span></label>
-			</div>
-			<div class="form-floating mb-3">
-				<input 
-					class="form-control" 
-					name="gitAddress"
-					placeholder="Github 주소" 
-					id="floatingTextarea">
-				<label for="floatingInput">Github 주소</label>
-			</div>
-			<div class="form-floating mb-3">
-				<input 
-					class="form-control" 
-					name="gender"
-					placeholder="성별" 
-					id="floatingTextarea">
-				<label for="floatingInput">성별</label>
-			</div>
-			<div class="form-floating mb-3">
-				<input 
-					class="form-control" 
-					name="birth"
-					placeholder="생년월일" 
-					id="floatingTextarea">
-				<label for="floatingInput">생년월일</label>
-			</div>
-			<button class="btn btn-primary">회원가입</button>
-		</form>
-	</div>
-
-</body>
-</html>-->
