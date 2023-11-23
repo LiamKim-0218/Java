@@ -9,8 +9,6 @@ $("#datePicker").datepicker({
   //   multidate: true,
 });
 
-console.log("입력하고 싶은 English input".replace(/[a-z]+/, ""));
-
 const idReg = /^[a-z0-9]{3,20}$/i;
 const pwReg = /^(?=.*[a-z])(?=.*[\!\@\#\$\%\^\&])(?=.*\d).{10,30}$/i;
 const koreanReg = /[ㄱ-ㅎㅏ-ㅣ가-힣]/g;

@@ -16,11 +16,12 @@ public class Board {
 	private String title;
 	@NonNull
 	private String content;
-	private int views;
-	private int likes;
-	private int hates;
-	private Timestamp createAt;
-	private boolean isWithdrew;
+	private int views = 0;
+	private int likes = 0;
+	private int hates = 0;
+	private Timestamp createdAt;
+	private boolean isWithdrew = false;
 	@NonNull
 	private int userId;
+	private String userName;
 }

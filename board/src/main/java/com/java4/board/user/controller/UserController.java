@@ -74,6 +74,7 @@ public class UserController {
 
 		if (tempUser != null) {
 			session.setAttribute("userName", tempUser.getName());
+			session.setAttribute("userId", tempUser.getId());
 		}
 		return "redirect:/";
 	}
@@ -81,6 +82,7 @@ public class UserController {
 	@GetMapping("logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("userName");
+		session.removeAttribute("userId");
 		return "redirect:/";
 	}
 

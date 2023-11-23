@@ -17,7 +17,25 @@ public class BoardService {
 		boardDao.add(board);
 	}
 	
-	public List<Board> getAll(){
-		return boardDao.getAll();
+	public List<Board> getAll(int page, int size){
+		return boardDao.getAll(page, size);
+	}
+	
+	public int getTotalItemCount() {
+        return boardDao.getTotalItemCount();
+    }
+	
+	
+	
+	public Board getBoardById(int boardId) {
+	    return boardDao.getBoardById(boardId);
+	}
+
+	public void editBoard(Board board) {
+	    boardDao.editBoard(board);
+	}
+
+	public void deleteBoard(int boardId) {
+	    boardDao.deleteBoard(boardId);
 	}
 }
