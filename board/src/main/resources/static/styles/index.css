@@ -13,3 +13,7 @@ html,body{
 .space{
 	padding-left:50px;
 }
+
+.user-name:hover .user-git-address{
+	display: block;
+}
