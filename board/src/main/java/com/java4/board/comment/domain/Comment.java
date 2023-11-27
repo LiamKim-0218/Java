@@ -1,6 +1,7 @@
 package com.java4.board.comment.domain;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,4 +20,5 @@ public class Comment {
 	private final int userId;
 	private final int boardId;
 	private int commentId;
+	private List<Comment> children;
 }
